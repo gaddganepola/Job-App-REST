@@ -4,14 +4,13 @@ import com.expert.JobAppREST.model.JobPost;
 import com.expert.JobAppREST.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 //@Controller
 @RestController
+//@CrossOrigin(origins = "http://localhost:4200")
 public class JobRestController {
 
     @Autowired
@@ -21,6 +20,16 @@ public class JobRestController {
 //    @ResponseBody
     public List<JobPost> getAllJobs() {
         return service.getAllJobs();
+    }
+
+    @GetMapping("job/{id}")
+    public JobPost getJob(@PathVariable("id") int id) {
+        return service.getJob(id);
+    }
+
+    @PostMapping("job")
+    public void addJob(JobPost job) {
+        service.addJob(job);
     }
 
 }
