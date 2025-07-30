@@ -16,6 +16,7 @@ import java.util.List;
 @Entity
 public class JobPost {
 
+
     @Id
     private int postId;
     private String postProfile;
