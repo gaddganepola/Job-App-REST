@@ -60,4 +60,9 @@ public class JobService {
 
         return "Loaded";
     }
+
+    public List<JobPost> searchJobs(String keyword) {
+//        return repo.findByPostProfileContainingOrPostDescContaining(keyword, keyword);
+        return repo.searchIgnoreCase(keyword, keyword);
+    }
 }

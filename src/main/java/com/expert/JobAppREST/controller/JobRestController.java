@@ -48,8 +48,13 @@ public class JobRestController {
 
     @GetMapping("load")
     public String load() {
-
         return service.load();
     }
+
+    @GetMapping("jobs/keyword/{keyword}")
+    public List<JobPost> searchJobs(@PathVariable String keyword) {
+        return service.searchJobs(keyword);
+    }
+
 
 }
