@@ -50,4 +50,20 @@ public class JobRepo {
     public void addJob(JobPost job) {
         jobs.add(job);
     }
+
+    public void deleteJob(int id) {
+        jobs.removeIf(job -> job.getPostId() == id);
+    }
+
+    public void updateJob(JobPost job) {
+
+        for(JobPost j : jobs) {
+            if(j.getPostId() == job.getPostId()) {
+                j.setPostProfile(job.getPostProfile());
+                j.setPostDesc(job.getPostDesc());
+                j.setReqExperience(job.getReqExperience());
+                j.setPostTechStack(job.getPostTechStack());
+            }
+        }
+    }
 }
