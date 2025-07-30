@@ -11,6 +11,7 @@ import java.util.List;
 //@Controller
 @RestController
 //@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 public class JobRestController {
 
     @Autowired
@@ -28,8 +29,9 @@ public class JobRestController {
     }
 
     @PostMapping("job")
-    public void addJob(JobPost job) {
+    public JobPost addJob(@RequestBody JobPost job) {
         service.addJob(job);
+        return service.getJob(job.getPostId());
     }
 
 }
