@@ -46,4 +46,10 @@ public class JobRestController {
         return "Deleted job with id: " + id;
     }
 
+    @GetMapping("load")
+    public String load() {
+
+        return service.load();
+    }
+
 }
